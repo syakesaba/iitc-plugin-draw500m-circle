@@ -41,21 +41,16 @@ window.plugin.draw500m.drawCircle = function(selectedPortalGuid, unselectedPorta
     console.warn ('Error: failed to find portal details for guid '+selectedPortalGuid+' - failed to fetch data');
     return;
   }
-  let selectedPortalData = selectedPortal.options.data;
-  let lat = data.latE6/1E6;
-  let lng = data.lngE6/1E6;
-  let coord = (lat, lng);
-  if (selectedPortalData) {
-    window.plugin.draw500m.portalRangeInFieldIndicator = window.L.geodesicCircle(
-      coord, 500, {
-        fill: false,
-        color: "yellow"
-        weight: 3,
-        dashArray: "10,10",
-        interactive: false
-      }
-    ).addTo(window.map);
-  }
+  let coord = selectedPortal.getLatLng();
+  window.plugin.draw500m.portalRangeInFieldIndicator = window.L.geodesicCircle(
+    coord, 500, {
+      fill: false,
+      color: "yellow",
+      weight: 3,
+      dashArray: "10,10",
+      interactive: false
+    }
+  ).addTo(window.map);
 }
 
 var setup = function () {
