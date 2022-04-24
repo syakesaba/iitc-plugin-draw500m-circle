@@ -2,10 +2,10 @@
 // @id             iitc-plugin-draw500m-circle
 // @name           IITC plugin: Debug: Draw 500m Circle for Portal Selected
 // @category       Draw
-// @version        0.0.2
+// @version        1.0.0
 // @namespace      draw500m
-// @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
-// @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
+// @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/master/draw500m-circle.js
+// @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/master/draw500m-circle.js
 // @description    IITC plugin: Debug: Draw 500m Circle for Portal Selected
 // @include https://intel.ingress.com/intel*
 // @match https://intel.ingress.com/intel*
@@ -25,23 +25,22 @@ window.plugin.draw500m = function() {};
 
 window.plugin.draw500m.setupCallback = function() {
     window.plugin.draw500m.portalRangeInFieldIndicator = null
-    console.warn('Initializing draw500m');
     addHook('portalSelected', window.plugin.draw500m.drawCircle);
 }
 
 //see core/code/portal_detail_display.js
-window.plugin.draw500m.drawCircle = function(selectedPortalGuid, unselectedPortalGuid) {
+window.plugin.draw500m.drawCircle = function(d) {
   if (window.plugin.draw500m.portalRangeInFieldIndicator) {
     window.map.removeLayer(window.plugin.draw500m.portalRangeInFieldIndicator);
     window.plugin.draw500m.portalRangeInFieldIndicator = null;
   }
-  selectedPoral = window.portals[selectedPortalGuid];
-  unselectedPoral = window.portals[unselectedPortalGuid];
-  if (!selectedPortal) {
-    console.warn ('Error: failed to find portal details for guid '+selectedPortalGuid+' - failed to fetch data');
+  let p = window.portals[d.selectedPortalGuid];
+  //let up = window.portals[d.unselectedPortalGuid];
+  if (!p) {
+    console.warn ('Error: failed to find portal details for guid '+d.selectedPortalGuid+' - failed to fetch data');
     return;
   }
-  let coord = selectedPortal.getLatLng();
+  let coord = p.getLatLng();
   window.plugin.draw500m.portalRangeInFieldIndicator = window.L.geodesicCircle(
     coord, 500, {
       fill: false,
