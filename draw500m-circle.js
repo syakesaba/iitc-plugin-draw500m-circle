@@ -4,8 +4,8 @@
 // @category       Debug
 // @version        0.0.0
 // @namespace      draw500m
-// @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/main/draw500m-circle.js
-// @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/main/draw500m-circle.js
+// @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
+// @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
 // @description    IITC plugin: Debug: Draw 500m Circle for Portal Selected
 // @include https://intel.ingress.com/intel*
 // @match https://intel.ingress.com/intel*
@@ -25,6 +25,7 @@ window.plugin.draw500m = function() {};
 
 window.plugin.draw500m.setupCallback = function() {
     window.plugin.draw500m.portalRangeInFieldIndicator = null
+    console.warn ('Initializing draw500m');
     addHook('portalSelected', window.plugin.draw500m.drawCircle);
 }
 
