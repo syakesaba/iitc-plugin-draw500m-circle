@@ -2,7 +2,7 @@
 // @id             iitc-plugin-draw500m-circle
 // @name           IITC plugin: Debug: Draw 500m Circle for Portal Selected
 // @category       Debug
-// @version        0.0.0
+// @version        0.0.1
 // @namespace      draw500m
 // @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
 // @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
