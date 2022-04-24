@@ -1,8 +1,8 @@
 // ==UserScript==
 // @id             iitc-plugin-draw500m-circle
 // @name           IITC plugin: Debug: Draw 500m Circle for Portal Selected
-// @category       Debug
-// @version        0.0.1
+// @category       Draw
+// @version        0.0.2
 // @namespace      draw500m
 // @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
 // @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/test/draw500m-circle.js
@@ -25,7 +25,7 @@ window.plugin.draw500m = function() {};
 
 window.plugin.draw500m.setupCallback = function() {
     window.plugin.draw500m.portalRangeInFieldIndicator = null
-    console.warn ('Initializing draw500m');
+    console.warn('Initializing draw500m');
     addHook('portalSelected', window.plugin.draw500m.drawCircle);
 }
 
