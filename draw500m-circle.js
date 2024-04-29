@@ -7,10 +7,8 @@
 // @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/master/draw500m-circle.js
 // @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/master/draw500m-circle.js
 // @description    IITC plugin: Debug: Draw 500m Circle for Portal Selected
-// @include https://intel.ingress.com/intel*
-// @match https://intel.ingress.com/intel*
-// @include https://intel.ingress.com/mission/*
-// @match https://intel.ingress.com/mission/*
+// @include https://intel.ingress.com/*
+// @match https://intel.ingress.com/*
 // @grant          none
 // ==/UserScript==
 
