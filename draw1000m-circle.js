@@ -2,8 +2,8 @@
 // @id             iitc-plugin-draw1000m-circle
 // @name           IITC plugin: Debug: Draw 1000m Circle for Portal Selected
 // @category       Draw
-// @version        1.0.0
-// @namespace      draw500m
+// @version        1.0.1
+// @namespace      draw1000m
 // @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/master/draw1000m-circle.js
 // @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-draw500m-circle/master/draw1000m-circle.js
 // @description    IITC plugin: Debug: Draw 1000m Circle for Portal Selected
@@ -19,18 +19,18 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 // PLUGIN START ////////////////////////////////////////////////////////
 
 // use own namespace for plugin
-window.plugin.draw500m = function() {};
+window.plugin.draw1000m = function() {};
 
-window.plugin.draw500m.setupCallback = function() {
-    window.plugin.draw500m.portalRangeInFieldIndicator = null
-    addHook('portalSelected', window.plugin.draw500m.drawCircle);
+window.plugin.draw1000m.setupCallback = function() {
+    window.plugin.draw1000m.portalRangeInFieldIndicator = null
+    addHook('portalSelected', window.plugin.draw1000m.drawCircle);
 }
 
 //see core/code/portal_detail_display.js
-window.plugin.draw500m.drawCircle = function(d) {
-  if (window.plugin.draw500m.portalRangeInFieldIndicator) {
-    window.map.removeLayer(window.plugin.draw500m.portalRangeInFieldIndicator);
-    window.plugin.draw500m.portalRangeInFieldIndicator = null;
+window.plugin.draw1000m.drawCircle = function(d) {
+  if (window.plugin.draw1000m.portalRangeInFieldIndicator) {
+    window.map.removeLayer(window.plugin.draw1000m.portalRangeInFieldIndicator);
+    window.plugin.draw1000m.portalRangeInFieldIndicator = null;
   }
   let p = window.portals[d.selectedPortalGuid];
   //let up = window.portals[d.unselectedPortalGuid];
@@ -39,7 +39,7 @@ window.plugin.draw500m.drawCircle = function(d) {
     return;
   }
   let coord = p.getLatLng();
-  window.plugin.draw500m.portalRangeInFieldIndicator = window.L.geodesicCircle(
+  window.plugin.draw1000m.portalRangeInFieldIndicator = window.L.geodesicCircle(
     coord, 1000, {
       fill: false,
       color: "yellow",
@@ -51,7 +51,7 @@ window.plugin.draw500m.drawCircle = function(d) {
 }
 
 var setup = function () {
-  window.plugin.draw500m.setupCallback();
+  window.plugin.draw1000m.setupCallback();
 }
 
 // PLUGIN END //////////////////////////////////////////////////////////
